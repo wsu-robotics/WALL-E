@@ -10,20 +10,20 @@ def main ():
     while True:
         control_packet = controller.get_values ()
 
-        print control_packet
+        print (control_packet)
 
         if (control_packet['yaw'] == 1):
             #ser.write ('d')
-	    print "d"
+            print ("d")
         elif (control_packet['yaw'] == -1):
             #ser.write ('a')
- 	    print "a"
+            print ("a")
         elif (control_packet['throttle'] == -1):
             #ser.write ('w')
-	    print "w"
+            print ("w")
         elif (control_packet['throttle'] == 1):
             #ser.write ('s')
-	    print "s"
+            print ("s")
 
         # Update at 20 messages a second
         sleep (.05)

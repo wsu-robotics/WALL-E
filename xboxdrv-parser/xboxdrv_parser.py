@@ -95,12 +95,16 @@ class Controller:
         self._return_as = return_as
 
         controller = subprocess.Popen (["sudo", "xboxdrv", "-d"], stdout=subprocess.PIPE)
-
-        # This waits for password input
-        sleep (10)
-
+        choice = raw_input("")
+		
+        # This waits for password input by looking for the newline character
+        while choice != '\n':
+            sleep (1)
+            choice = raw_input("")
+		
+        print ("Starting Controller Parsing...")
         self.line_parser = self.__parser__ (controller)
-        self.line_parser.daemon = True
+        self.line_parser.daemon = True      
         self.line_parser.start ()
 
         self.outputs = {}
