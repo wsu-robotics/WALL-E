@@ -18,6 +18,8 @@ class Drive
    void backward ();
    void right ();
    void left ();
+   void rotate_ccw ();
+   void rotate_cw ();
  private:
    int _left_pin1;
    int _left_pin2;

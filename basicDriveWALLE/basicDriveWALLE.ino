@@ -1,9 +1,9 @@
-#define MOTOR1PIN1 3
-#define MOTOR1PIN2 4
-#define MOTOR1CONTROLPIN 9
-#define MOTOR2PIN1 5
-#define MOTOR2PIN2 6
-#define MOTOR2CONTROLPIN 10
+#define MOTOR1PIN1 5
+#define MOTOR1PIN2 6
+#define MOTOR1CONTROLPIN 12
+#define MOTOR2PIN1 10
+#define MOTOR2PIN2 11
+#define MOTOR2CONTROLPIN 2
 
 #include <Drive.h>
 

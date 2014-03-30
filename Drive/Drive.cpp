@@ -45,7 +45,7 @@ void Drive::backward ()
 	digitalWrite (_right_pin2, LOW);
 }
 
-void Drive::left ()
+void Drive::rotate_ccw ()
 {
 	digitalWrite (_left_pin2, HIGH);
 	digitalWrite (_right_pin1, HIGH);
@@ -54,11 +54,25 @@ void Drive::left ()
 	digitalWrite (_right_pin1, LOW);
 }
 
-void Drive::right ()
+void Drive::rotate_cw ()
 {
 	digitalWrite (_left_pin1, HIGH);
 	digitalWrite (_right_pin2, HIGH);
 	delay (500);
 	digitalWrite (_left_pin1, LOW);
 	digitalWrite (_right_pin2, LOW);
+}
+
+void Drive::left ()
+{
+	digitalWrite (_right_pin1, HIGH);
+	delay(500);
+	digitalWrite (_right_pin1, LOW);
+}
+
+void Drive::right ()
+{
+	digitalWrite (_left_pin1, HIGH);
+	delay(500);
+	digitalWrite (_left_pin1, LOW);
 }
