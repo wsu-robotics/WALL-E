@@ -98,7 +98,7 @@ class Controller:
         choice = raw_input("")
 		
         # This waits for password input by looking for the newline character
-        while choice != '\n':
+        while choice == '':
             sleep (1)
             choice = raw_input("")
 		
