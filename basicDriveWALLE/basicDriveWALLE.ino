@@ -1,56 +1,29 @@
-#define TRIG_PIN 12
-#define ECHO_PIN 13
-#define LED1 11
-#define LED2 10  
+#define MOTOR1PIN1 3
+#define MOTOR1PIN2 4
+#define MOTOR1CONTROLPIN 9
+#define MOTOR2PIN1 5
+#define MOTOR2PIN2 6
+#define MOTOR2CONTROLPIN 10
 
 #include <Drive.h>
 
-Drive drive (5, 6);
+//Right motor pins then left
+Drive drive (MOTOR1PIN1, MOTOR1PIN2, MOTOR1CONTROLPIN,
+             MOTOR2PIN1, MOTOR2PIN2, MOTOR2CONTROLPIN);
 
 byte input;
 
 void setup ()
 {
   Serial.begin (9600);
-  pinMode (ECHO_PIN, INPUT);
-  pinMode (TRIG_PIN, OUTPUT);
 }
 
 void loop ()
 {
-  /*long duration, distance;
-  digitalWrite (TRIG_PIN, LOW);
-  delayMicroseconds (2);
-  digitalWrite (TRIG_PIN, HIGH);
-  delayMicroseconds (10);
-  digitalWrite (TRIG_PIN, LOW);
-  duration = pulseIn (ECHO_PIN, HIGH);
-  distance = (duration / 2) / 29.1;
-  
-  if (distance < 4)
-  {
-      digitalWrite (LED1, HIGH);
-      digitalWrite (LED2, LOW);
-  }
-  else
-  {
-      digitalWrite (LED1, LOW);
-      digitalWrite (LED2, HIGH);
-  }
-  if (distance >= 200 || distance <= 0)
-  {
-     Serial.println ("Out of range"); 
-  }
-  else
-  {
-      Serial.print (distance);
-      Serial.println (" cm");
-  }
-  delay (500);*/
   //Drive Code
   if (Serial.available ())
   {
-    input = Serial.read ();
+     input = Serial.read ();
      if (input == 'w')
      {
        drive.forward (); 
@@ -66,10 +39,6 @@ void loop ()
      else if (input == 'd')
      {
          drive.right ();
-     }
-     if (input == 'w')
-     {
-        drive.forward (); 
      }
   }
 }

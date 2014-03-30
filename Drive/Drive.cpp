@@ -1,43 +1,64 @@
 #include "Drive.h"
 #include "Arduino.h"
 
-Drive::Drive (int pin1, int pin2)
+/*
+*	TODO: Ensure Motor pins are correct and are set in the correct direction
+*/
+
+Drive::Drive (int right_motor_pin1, int right_motor_pin2, int right_motor_control_pin,
+			  int left_motor_pin1, int left_motor_pin2, int left_motor_control_pin)
 {
-	pinMode (pin1, OUTPUT);
-	pinMode (pin2, OUTPUT);
-	_pin1 = pin1;
-	_pin2 = pin2;
+	pinMode (right_motor_pin1, OUTPUT);
+	pinMode (right_motor_pin2, OUTPUT);
+	pinMode (right_motor_control_pin, OUTPUT);
+	pinMode (left_motor_pin1, OUTPUT);
+	pinMode (left_motor_pin2, OUTPUT);
+	pinMode (left_motor_control_pin, OUTPUT);
+	_left_pin1 = left_motor_pin1;
+	_left_pin2 = left_motor_pin2;
+	_left_control_pin = left_motor_control_pin;
+	_right_pin2 = right_motor_pin1;
+	_right_pin1 = right_motor_pin2;
+	_right_control_pin = right_motor_control_pin;
+	
+	//These lines ensure that the motors can move
+	//To disable the motors set these to low
+	digitalWrite(_left_control_pin, HIGH);
+	digitalWrite(_right_control_pin, HIGH);
 }
 
 void Drive::forward ()
 {
-	analogWrite (_pin1, 150);
-	analogWrite (_pin2, 150);
+	digitalWrite (_left_pin1, HIGH);
+	digitalWrite (_right_pin1, HIGH);
 	delay (500);
-	analogWrite (_pin1, 0);
-	analogWrite (_pin2, 0);
+	digitalWrite (_left_pin1, LOW);
+	digitalWrite (_right_pin1, LOW);
 }
 
 void Drive::backward ()
 {
-	//Somehow need to get a negative voltage to go backward
-	analogWrite (_pin1, 150);
-	analogWrite (_pin2, 150);
+	digitalWrite (_left_pin2, HIGH);
+	digitalWrite (_right_pin2, HIGH);
 	delay (500);
-	analogWrite (_pin1, 0);
-	analogWrite (_pin2, 0);
+	digitalWrite (_left_pin2, LOW);
+	digitalWrite (_right_pin2, LOW);
 }
 
 void Drive::left ()
 {
-	analogWrite (_pin1, 150);
+	digitalWrite (_left_pin2, HIGH);
+	digitalWrite (_right_pin1, HIGH);
 	delay (500);
-	analogWrite (_pin1, 0);
+	digitalWrite (_left_pin2, LOW);
+	digitalWrite (_right_pin1, LOW);
 }
 
 void Drive::right ()
 {
-	analogWrite (_pin2, 150);
+	digitalWrite (_left_pin1, HIGH);
+	digitalWrite (_right_pin2, HIGH);
 	delay (500);
-	analogWrite (_pin2, 0);
+	digitalWrite (_left_pin1, LOW);
+	digitalWrite (_right_pin2, LOW);
 }
