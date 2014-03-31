@@ -42,5 +42,13 @@ void loop ()
          input -= 255;
          drive.right (input);
      }
+     if (input == 511)
+     {
+        drive.rotate_cw (); 
+     }
+     if (input == -511)
+     {
+        drive.rotate_ccw (); 
+     }
   }
 }
