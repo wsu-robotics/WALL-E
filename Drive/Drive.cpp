@@ -27,52 +27,42 @@ Drive::Drive (int right_motor_pin1, int right_motor_pin2, int right_motor_contro
 	digitalWrite(_right_control_pin, HIGH);
 }
 
-void Drive::forward ()
+void Drive::forward (int speed)
 {
-	digitalWrite (_left_pin1, HIGH);
-	digitalWrite (_right_pin1, HIGH);
-	delay (500);
-	digitalWrite (_left_pin1, LOW);
-	digitalWrite (_right_pin1, LOW);
+	analogWrite (_left_pin1, speed);
+	analogWrite (_right_pin1, speed);
 }
 
-void Drive::backward ()
+void Drive::backward (int speed)
 {
-	digitalWrite (_left_pin2, HIGH);
-	digitalWrite (_right_pin2, HIGH);
-	delay (500);
-	digitalWrite (_left_pin2, LOW);
-	digitalWrite (_right_pin2, LOW);
+	analogWrite (_left_pin2, speed);
+	analogWrite (_right_pin2, speed);
 }
 
 void Drive::rotate_ccw ()
 {
-	digitalWrite (_left_pin2, HIGH);
-	digitalWrite (_right_pin1, HIGH);
+	analogWrite (_left_pin2, 123);
+	analogWrite (_right_pin1, 123);
 	delay (500);
-	digitalWrite (_left_pin2, LOW);
-	digitalWrite (_right_pin1, LOW);
+	analogWrite (_left_pin2, 0);
+	analogWrite (_right_pin1, 0);
 }
 
 void Drive::rotate_cw ()
 {
-	digitalWrite (_left_pin1, HIGH);
-	digitalWrite (_right_pin2, HIGH);
+	analogWrite (_left_pin1, 123);
+	analogWrite (_right_pin2, 123);
 	delay (500);
-	digitalWrite (_left_pin1, LOW);
-	digitalWrite (_right_pin2, LOW);
+	analogWrite (_left_pin1, 0);
+	analogWrite (_right_pin2, 0);
 }
 
-void Drive::left ()
+void Drive::left (int speed)
 {
-	digitalWrite (_right_pin1, HIGH);
-	delay(500);
-	digitalWrite (_right_pin1, LOW);
+	analogWrite (_right_pin1, speed);
 }
 
-void Drive::right ()
+void Drive::right (int speed)
 {
-	digitalWrite (_left_pin1, HIGH);
-	delay(500);
-	digitalWrite (_left_pin1, LOW);
+	analogWrite (_left_pin1, speed);
 }

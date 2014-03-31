@@ -14,10 +14,10 @@ class Drive
  public:
    Drive (int right_motor_pin1, int right_motor_pin2, int right_motor_control_pin,
 		  int left_motor_pin1, int left_motor_pin2, int left_motor_control_pin);
-   void forward ();
-   void backward ();
-   void right ();
-   void left ();
+   void forward (int speed);
+   void backward (int speed);
+   void right (int speed);
+   void left (int speed);
    void rotate_ccw ();
    void rotate_cw ();
  private:
