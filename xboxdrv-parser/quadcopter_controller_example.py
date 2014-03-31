@@ -14,20 +14,24 @@ def main ():
 		input = 0
         if (control_packet['yaw'] <= 1 && control_packet['yaw'] >= 0.05):
             input *= 255
+			input += 255
 			ser.write (input)
             print ("d")
         elif (control_packet['yaw'] >= -1 && control_packet['yaw'] <= -0.05):
             input *= 255
+			input -= 255
 			ser.write (input)
             print ("a")
         elif (control_packet['throttle'] >= -1 && control_packet['throttle'] <= -0.08):
             input *= 255
-			input -= 255
+			#make the value intuitive
+			input = math.fabs(input)
 			ser.write (input)
             print ("w")
         elif (control_packet['throttle'] <= 1 && control_packet['throttle'] >= 0.08):
             input *= 255
-			input += 255
+			#make the value intuitive
+			input = -input
 			ser.write (input)
             print ("s")
 

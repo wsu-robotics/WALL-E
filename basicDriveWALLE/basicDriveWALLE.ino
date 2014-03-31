@@ -11,7 +11,7 @@
 Drive drive (MOTOR1PIN1, MOTOR1PIN2, MOTOR1CONTROLPIN,
              MOTOR2PIN1, MOTOR2PIN2, MOTOR2CONTROLPIN);
 
-byte input;
+int input;
 
 void setup ()
 {
@@ -24,21 +24,23 @@ void loop ()
   if (Serial.available ())
   {
      input = Serial.read ();
-     if (input == 'w')
+     if (input >= 0 && input <= 255)
      {
-       drive.forward (); 
+       drive.forward (input); 
      }
-     else if (input == 's')
+     if (input <= 0 && input >= -255)
      {
-        drive.backward (); 
+        drive.backward (abs (input)); 
      }
-     else if (input == 'a')
+     if (input >=  -510 && input < -255)
      {
-        drive.left (); 
+        input += 255;
+        drive.left (abs(input)); 
      }
-     else if (input == 'd')
+     if (input > 255 && input <= 510)
      {
-         drive.right ();
+         input -= 255;
+         drive.right (input);
      }
   }
 }

@@ -15,7 +15,7 @@ socket = context.socket(zmq.SUB)
 # Connect to the Server
 # The socket is the connection to the server
 print("Collecting updates from weather server...")
-socket.connect("tcp://localhost:5556")
+socket.connect("tcp://10.99.66.73:5556")
 
 # Subscribe to zipcode, default is Pullman, 99163
 # Can be changed by adding arguments to the command line initialization
@@ -27,12 +27,12 @@ if isinstance(zip_filter, bytes):
     zip_filter = zip_filter.decode('ascii')
 	
 # Set the options for the socket
-socket.setsockopt_string(zmq.SUBSCRIBE, zip_filter)
+socket.setsockopt_unicode(zmq.SUBSCRIBE, zip_filter)
 
 # Process 5 updates
 total_temp = 0
 for update_nbr in range(5):
-    string = socket.recv_string()
+    string = socket.recv()
     zipcode, temperature, relhumidity = string.split()
     total_temp += int(temperature)
 

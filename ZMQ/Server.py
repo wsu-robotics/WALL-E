@@ -23,4 +23,4 @@ while True:
     relhumidity = randrange(10, 60)
 
 	# Send the random values to the SUBscriber/Client as a string
-    socket.send_string("%i %i %i" % (zipcode, temperature, relhumidity))
+    socket.send("%i %i %i" % (zipcode, temperature, relhumidity))
