@@ -5,6 +5,6 @@ WALL-E
 1. python-zmq
 2. libzmq-dev
 3. xboxdrv
-4. pyserial
+4. python-serial
 
 _The code only works on a linux system_
