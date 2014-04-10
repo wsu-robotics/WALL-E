@@ -30,19 +30,15 @@ while True:
     if (control_packet['yaw'] <= 1 and control_packet['yaw'] >= 0.05):
         input *= 255
         input += 255
-        print ("d")
     elif (control_packet['yaw'] >= -1 and control_packet['yaw'] <= -0.05):
         input *= 255
         input -= 255
-        print ("a")
     elif (control_packet['throttle'] >= -1 and control_packet['throttle'] <= -0.08):
         input *= 255
 		#make the value intuitive
         input = math.fabs(input)
-        print ("w")
     elif (control_packet['throttle'] <= 1 and control_packet['throttle'] >= 0.08):
         input *= 255
 	    #make the value intuitive
         input = -input
-        print ("s")
 	ser.write(input)
