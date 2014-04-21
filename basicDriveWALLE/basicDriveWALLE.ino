@@ -1,9 +1,9 @@
-#define MOTOR1PIN1 5
+#define MOTOR1PIN1 4
 #define MOTOR1PIN2 6
-#define MOTOR1CONTROLPIN 4
+#define MOTOR1CONTROLPIN 5
 #define MOTOR2PIN1 9
-#define MOTOR2PIN2 10
-#define MOTOR2CONTROLPIN 8
+#define MOTOR2PIN2 11
+#define MOTOR2CONTROLPIN 10
 
 #include <Drive.h>
 
@@ -11,11 +11,17 @@
 Drive drive (MOTOR1PIN1, MOTOR1PIN2, MOTOR1CONTROLPIN,
              MOTOR2PIN1, MOTOR2PIN2, MOTOR2CONTROLPIN);
 
-int input;
+int input, temp;
 
 void setup ()
 {
   Serial.begin (9600);
+  Serial.write ("Enabling Motors\n");
+  analogWrite(MOTOR1CONTROLPIN, 255);
+  Serial.write ("Motor 1 Enabled\n");
+  analogWrite(MOTOR2CONTROLPIN, 255);
+  Serial.write ("Motor 2 Enabled\n");
+  drive.motorStop ();
 }
 
 void loop ()
@@ -24,31 +30,37 @@ void loop ()
   if (Serial.available ())
   {
      input = Serial.read ();
-     if (input >= 0 && input <= 255)
+     temp = input;
+     if (input == 0)
      {
-       drive.forward (input); 
+       drive.motorStop ();
      }
-     if (input <= 0 && input >= -255)
+     else if (input > 0 && input <= 255)
      {
-        drive.backward (abs (input)); 
+       drive.forward (temp);
      }
-     if (input >=  -510 && input < -255)
+     else if (input < 0 && input >= -255)
      {
-        input += 255;
-        drive.left (abs(input)); 
+        drive.backward (abs (temp)); 
      }
-     if (input > 255 && input <= 510)
+     else if (input >=  -510 && input < -255)
      {
-         input -= 255;
-         drive.right (input);
+        temp = temp + 255;
+        drive.left (abs(temp)); 
      }
-     if (input == 511)
+     else if (input > 255 && input <= 510)
+     {
+         temp = temp - 255;
+         drive.right (temp);
+     }
+     else if (input == 511)
      {
         drive.rotate_cw (); 
      }
-     if (input == -511)
+     else if (input == -511)
      {
         drive.rotate_ccw (); 
      }
   }
+  temp = 0;
 }
