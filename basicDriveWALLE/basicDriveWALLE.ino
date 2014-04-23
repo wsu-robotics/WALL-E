@@ -8,10 +8,11 @@
 #include <Drive.h>
 
 //Right motor pins then left
-Drive drive (MOTOR1PIN1, MOTOR1PIN2, MOTOR1CONTROLPIN,
-             MOTOR2PIN1, MOTOR2PIN2, MOTOR2CONTROLPIN);
+Drive drive (MOTOR1PIN1, MOTOR1PIN2, MOTOR1CONTROLPIN, MOTOR2PIN1, MOTOR2PIN2, MOTOR2CONTROLPIN);
 
-int input, temp;
+char incomingByte;
+signed int input, temp;
+boolean neg;
 
 void setup ()
 {
@@ -27,40 +28,56 @@ void setup ()
 void loop ()
 {
   //Drive Code
-  if (Serial.available ())
-  {
-     input = Serial.read ();
-     temp = input;
-     if (input == 0)
-     {
-       drive.motorStop ();
-     }
-     else if (input > 0 && input <= 255)
-     {
-       drive.forward (temp);
-     }
-     else if (input < 0 && input >= -255)
-     {
-        drive.backward (abs (temp)); 
-     }
-     else if (input >=  -510 && input < -255)
-     {
-        temp = temp + 255;
-        drive.left (abs(temp)); 
-     }
-     else if (input > 255 && input <= 510)
-     {
-         temp = temp - 255;
-         drive.right (temp);
-     }
-     else if (input == 511)
-     {
-        drive.rotate_cw (); 
-     }
-     else if (input == -511)
-     {
-        drive.rotate_ccw (); 
-     }
-  }
+	if (Serial.available () > 0)
+	{
+		input = 0;
+		while (true)
+		{
+			incomingByte = Serial.read ();
+			if (incomingByte == '\n') break;
+			if (incomingByte == -1) continue;
+			if (incomingByte == '-')
+			{
+				neg = true;
+			}
+			input *= 10;
+			input += incomingByte - 48; //48 is ASCII value of 0
+			// Maximum value for input is 32768
+		}
+		if (neg == true) input = -input;
+		neg = false;
+	}
+
+	temp = input;
+	if (input == 0)
+	{
+	        drive.motorStop ();
+	}
+	else if (input > 0 && input <= 255)
+	{
+	        drive.forward (temp);
+	}
+	else if (input < 0 && input >= -255)
+	{
+	        drive.backward (abs (temp)); 
+	}
+	else if (input >=  -510 && input < -255)
+	{
+      	        temp = abs (temp + 255);
+      	        drive.left (temp); 
+	}
+	else if (input > 255 && input <= 510)
+	{
+		temp = temp - 255;
+		drive.right (temp);
+	}
+	else if (input == 511)
+	{
+	        drive.rotate_cw (); 
+	}
+	else if (input == -511)
+	{
+	        drive.rotate_ccw (); 
+	}
   temp = 0;
 }
