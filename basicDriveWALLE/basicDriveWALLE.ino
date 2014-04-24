@@ -11,7 +11,7 @@
 Drive drive (MOTOR1PIN1, MOTOR1PIN2, MOTOR1CONTROLPIN, MOTOR2PIN1, MOTOR2PIN2, MOTOR2CONTROLPIN);
 
 char incomingByte;
-signed int input, temp;
+int input, temp, last;
 boolean neg;
 
 void setup ()
@@ -35,20 +35,49 @@ void loop ()
 		{
 			incomingByte = Serial.read ();
 			if (incomingByte == '\n') break;
-			if (incomingByte == -1) continue;
-			if (incomingByte == '-')
+                        if (incomingByte == 45)
 			{
 				neg = true;
+                                continue;
 			}
-			input *= 10;
-			input += incomingByte - 48; //48 is ASCII value of 0
+			if (incomingByte == -1) continue;
+                        else 
+                        {
+			        input *= 10;
+			        input += incomingByte - 48; //48 is ASCII value of 0
+                        }
 			// Maximum value for input is 32768
 		}
-		if (neg == true) input = -input;
+		if (neg) {input = -input;}
 		neg = false;
 	}
 
 	temp = input;
+        if ((input < 0 && input >= -255) && (last >= 0 || last < -255))
+        {
+              drive.motorStop ();
+        }
+        else if ((input > 0 && input <= 255) && (last <= 0 || last > 255))
+        {
+              drive.motorStop ();
+        }
+        else if ((input > 255 && input <= 510) && (last <= 255 || last > 510))
+        {
+              drive.motorStop (); 
+        }
+        else if ((input < -255 && input >= -510) && (last < -510 || last >= -255))
+        {
+              drive.motorStop ();
+        }
+        else if ((input == 510) && (last !=510))
+        {
+              drive.motorStop ();
+        }
+        else if (input == -510 && last != -510)
+        {
+              drive.motorStop ();
+        }
+
 	if (input == 0)
 	{
 	        drive.motorStop ();
@@ -80,4 +109,5 @@ void loop ()
 	        drive.rotate_ccw (); 
 	}
   temp = 0;
+  last = input;
 }

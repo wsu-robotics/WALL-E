@@ -49,8 +49,8 @@ void Drive::motorStop (void)
 
 void Drive::rotate_ccw (void)
 {
-	analogWrite (_left_control_pin, 123);
-	analogWrite (_right_control_pin, 123);
+	analogWrite (_left_control_pin, 255 / 2);
+	analogWrite (_right_control_pin, 255 / 2);
 	digitalWrite (_left_pin2, HIGH);
 	digitalWrite (_right_pin1, HIGH);
 	delay (500);
@@ -62,8 +62,8 @@ void Drive::rotate_ccw (void)
 
 void Drive::rotate_cw (void)
 {
-	analogWrite (_left_control_pin, 123);
-	analogWrite (_right_control_pin, 123);
+	analogWrite (_left_control_pin, 255 / 2);
+	analogWrite (_right_control_pin, 255 / 2);
 	digitalWrite (_left_pin1, HIGH);
 	digitalWrite (_right_pin2, HIGH);
 	delay (500);
@@ -76,15 +76,15 @@ void Drive::rotate_cw (void)
 void Drive::left (int speed)
 {
 	analogWrite (_right_control_pin, speed);
-	analogWrite (_left_control_pin, speed / 2);
+	analogWrite (_left_control_pin, speed);
 	digitalWrite (_right_pin1, HIGH);
-	digitalWrite (_left_pin1, HIGH);
+	digitalWrite (_left_pin2, HIGH);
 }
 
 void Drive::right (int speed)
 {
 	analogWrite (_left_control_pin, speed);
-	analogWrite (_right_control_pin, speed / 2);
+	analogWrite (_right_control_pin, speed);
 	digitalWrite (_left_pin1, HIGH);
-	digitalWrite (_right_pin1, HIGH);
+	digitalWrite (_right_pin2, HIGH);
 }
