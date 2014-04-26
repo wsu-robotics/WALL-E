@@ -16,13 +16,13 @@ boolean neg;
 
 void setup ()
 {
-  Serial.begin (9600);
-  Serial.write ("Enabling Motors\n");
-  analogWrite(MOTOR1CONTROLPIN, 255);
-  Serial.write ("Motor 1 Enabled\n");
-  analogWrite(MOTOR2CONTROLPIN, 255);
-  Serial.write ("Motor 2 Enabled\n");
-  drive.motorStop ();
+	Serial.begin (9600);
+	Serial.write ("Enabling Motors\n");
+	analogWrite(MOTOR1CONTROLPIN, 255);
+	Serial.write ("Motor 1 Enabled\n");
+	analogWrite(MOTOR2CONTROLPIN, 255);
+	Serial.write ("Motor 2 Enabled\n");
+	drive.motorStop ();
 }
 
 void loop ()
@@ -35,65 +35,66 @@ void loop ()
 		{
 			incomingByte = Serial.read ();
 			if (incomingByte == '\n') break;
-                        if (incomingByte == 45)
+			if (incomingByte == 45)
 			{
 				neg = true;
-                                continue;
+				continue;
 			}
 			if (incomingByte == -1) continue;
-                        else 
-                        {
-			        input *= 10;
-			        input += incomingByte - 48; //48 is ASCII value of 0
-                        }
+			else 
+			{
+				input *= 10;
+				input += incomingByte - 48; //48 is ASCII value of 0
+			}
 			// Maximum value for input is 32768
 		}
 		if (neg) {input = -input;}
 		neg = false;
+                Serial.println (input);
 	}
 
 	temp = input;
-        if ((input < 0 && input >= -255) && (last >= 0 || last < -255))
-        {
-              drive.motorStop ();
-        }
-        else if ((input > 0 && input <= 255) && (last <= 0 || last > 255))
-        {
-              drive.motorStop ();
-        }
-        else if ((input > 255 && input <= 510) && (last <= 255 || last > 510))
-        {
-              drive.motorStop (); 
-        }
-        else if ((input < -255 && input >= -510) && (last < -510 || last >= -255))
-        {
-              drive.motorStop ();
-        }
-        else if ((input == 510) && (last !=510))
-        {
-              drive.motorStop ();
-        }
-        else if (input == -510 && last != -510)
-        {
-              drive.motorStop ();
-        }
+		if ((input < 0 && input >= -255) && (last >= 0 || last < -255))
+		{
+			drive.motorStop ();
+		}
+		else if ((input > 0 && input <= 255) && (last <= 0 || last > 255))
+		{
+			drive.motorStop ();
+		}
+		else if ((input > 255 && input <= 510) && (last <= 255 || last > 510))
+		{
+			drive.motorStop (); 
+		}
+		else if ((input < -255 && input >= -510) && (last < -510 || last >= -255))
+		{
+			drive.motorStop ();
+		}
+		else if ((input == 510) && (last !=510))
+		{
+			drive.motorStop ();
+		}
+		else if (input == -510 && last != -510)
+		{
+			drive.motorStop ();
+		}
 
 	if (input == 0)
 	{
-	        drive.motorStop ();
+		drive.motorStop ();
 	}
 	else if (input > 0 && input <= 255)
 	{
-	        drive.forward (temp);
+		drive.forward (temp);
 	}
 	else if (input < 0 && input >= -255)
 	{
-	        drive.backward (abs (temp)); 
+		drive.backward (abs (temp)); 
 	}
 	else if (input >=  -510 && input < -255)
 	{
-      	        temp = abs (temp + 255);
-      	        drive.left (temp); 
+		temp = abs (temp + 255);
+		drive.left (temp); 
 	}
 	else if (input > 255 && input <= 510)
 	{
@@ -102,12 +103,12 @@ void loop ()
 	}
 	else if (input == 511)
 	{
-	        drive.rotate_cw (); 
+		drive.rotate_cw (); 
 	}
 	else if (input == -511)
 	{
-	        drive.rotate_ccw (); 
+		drive.rotate_ccw (); 
 	}
-  temp = 0;
-  last = input;
+	temp = 0;
+	last = input;
 }
