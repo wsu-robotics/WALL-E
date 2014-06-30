@@ -5,10 +5,11 @@
 #define MOTOR2PIN2 11
 #define MOTOR2CONTROLPIN 10
 
-#include <Drive.h>
+#include "Drive.h"
 
 //Right motor pins then left
-Drive drive (MOTOR1PIN1, MOTOR1PIN2, MOTOR1CONTROLPIN, MOTOR2PIN1, MOTOR2PIN2, MOTOR2CONTROLPIN);
+Drive drive (MOTOR1PIN1, MOTOR1PIN2, MOTOR1CONTROLPIN, 
+             MOTOR2PIN1, MOTOR2PIN2, MOTOR2CONTROLPIN);
 
 char incomingByte;
 int input, temp, last;
@@ -17,12 +18,7 @@ boolean neg;
 void setup ()
 {
 	Serial.begin (9600);
-	Serial.write ("Enabling Motors\n");
-	analogWrite(MOTOR1CONTROLPIN, 255);
-	Serial.write ("Motor 1 Enabled\n");
-	analogWrite(MOTOR2CONTROLPIN, 255);
-	Serial.write ("Motor 2 Enabled\n");
-	drive.motorStop ();
+	drive.enable ();
 }
 
 void loop ()
@@ -50,34 +46,34 @@ void loop ()
 		}
 		if (neg) {input = -input;}
 		neg = false;
-                Serial.println (input);
+		Serial.println (input);
 	}
 
 	temp = input;
-		if ((input < 0 && input >= -255) && (last >= 0 || last < -255))
-		{
-			drive.motorStop ();
-		}
-		else if ((input > 0 && input <= 255) && (last <= 0 || last > 255))
-		{
-			drive.motorStop ();
-		}
-		else if ((input > 255 && input <= 510) && (last <= 255 || last > 510))
-		{
-			drive.motorStop (); 
-		}
-		else if ((input < -255 && input >= -510) && (last < -510 || last >= -255))
-		{
-			drive.motorStop ();
-		}
-		else if ((input == 510) && (last !=510))
-		{
-			drive.motorStop ();
-		}
-		else if (input == -510 && last != -510)
-		{
-			drive.motorStop ();
-		}
+	if ((input < 0 && input >= -255) && (last >= 0 || last < -255))
+	{
+		drive.motorStop ();
+	}
+	else if ((input > 0 && input <= 255) && (last <= 0 || last > 255))
+	{
+		drive.motorStop ();
+	}
+	else if ((input > 255 && input <= 510) && (last <= 255 || last > 510))
+	{
+		drive.motorStop (); 
+	}
+	else if ((input < -255 && input >= -510) && (last < -510 || last >= -255))
+	{
+		drive.motorStop ();
+	}
+	else if ((input == 510) && (last !=510))
+	{
+		drive.motorStop ();
+	}
+	else if (input == -510 && last != -510)
+	{
+		drive.motorStop ();
+	}
 
 	if (input == 0)
 	{

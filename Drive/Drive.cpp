@@ -1,8 +1,7 @@
 #include "Drive.h"
 
-/*
-*	TODO: Ensure Motor pins are correct and are set in the correct direction
-*/
+//TODO: Ensure Motor pins are correct and are set in the correct direction
+
 
 Drive::Drive (int right_motor_pin1, int right_motor_pin2, int right_motor_control_pin,
 			  int left_motor_pin1, int left_motor_pin2, int left_motor_control_pin)
@@ -87,4 +86,13 @@ void Drive::right (int speed)
 	analogWrite (_right_control_pin, speed);
 	digitalWrite (_left_pin1, HIGH);
 	digitalWrite (_right_pin2, HIGH);
+}
+
+void Drive::enable ( )
+{
+	analogWrite (_right_control_pin, 255);
+	Serial.write ("Motor 1 Enabled\n");
+	analogWrite (_left_control_pin, 255);
+	Serial.write ("Motor 2 Enabled\n");
+	motorStop ( );
 }

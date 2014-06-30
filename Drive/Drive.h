@@ -21,6 +21,7 @@ class Drive
    void left (int speed);
    void rotate_ccw (void);
    void rotate_cw (void);
+   void enable (void);
  private:
    int _left_pin1;
    int _left_pin2;
