@@ -88,13 +88,13 @@
                     <literalString
                       Id="115a0834-90a0-4530-87de-fd35de41d550"
                       name="Lower"
-                      value="2" />
+                      value="1" />
                   </lowerValueInternal>
                   <upperValueInternal>
                     <literalString
                       Id="78fbcb6c-f44b-4167-93b7-25cb86dd5436"
                       name="Upper"
-                      value="2" />
+                      value="1" />
                   </upperValueInternal>
                 </memberEnd>
               </associationHasOwnedEnds>
@@ -141,6 +141,327 @@
             </type_NamedElement>
           </property>
         </ownedAttributesInternal>
+        <ownedOperationsInternal>
+          <operation
+            Id="26a41ad2-db57-455d-b6ab-fbb5424dcd58"
+            name="&lt;&lt;constructor&gt;&gt; Drive"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="d85493ec-597e-4178-a82b-af3e9d67c219"
+                  name="right_motor_pin1"
+                  direction="In"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <undefinedTypeMoniker
+                      Id="eca57d0e-edce-4c6b-a91f-4d1f754bf9c0"
+                      LastKnownName="int"
+                      LastKnownLocation="ClassDiagram.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="23afcc56-2d4c-4f9b-be6f-2e9edde89648"
+                  name="right_motor_pin2"
+                  direction="In"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <undefinedTypeMoniker
+                      Id="eca57d0e-edce-4c6b-a91f-4d1f754bf9c0"
+                      LastKnownName="int"
+                      LastKnownLocation="ClassDiagram.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="bbbba460-71b0-4a52-8a29-088a72eb97c0"
+                  name="right_motor_control_pin"
+                  direction="In"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <undefinedTypeMoniker
+                      Id="eca57d0e-edce-4c6b-a91f-4d1f754bf9c0"
+                      LastKnownName="int"
+                      LastKnownLocation="ClassDiagram.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="8b9e3ffa-0ddd-4886-a2bd-0c825b47e15b"
+                  name="left_motor_pin1"
+                  direction="In"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <undefinedTypeMoniker
+                      Id="eca57d0e-edce-4c6b-a91f-4d1f754bf9c0"
+                      LastKnownName="int"
+                      LastKnownLocation="ClassDiagram.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="ad8073ab-2024-4884-bb4a-9122b65fb339"
+                  name="left_motor_pin2"
+                  direction="In"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <undefinedTypeMoniker
+                      Id="eca57d0e-edce-4c6b-a91f-4d1f754bf9c0"
+                      LastKnownName="int"
+                      LastKnownLocation="ClassDiagram.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="4ca16da5-57e6-49ac-b381-da89839cb1d3"
+                  name="left_motor_control_pin"
+                  direction="In"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <undefinedTypeMoniker
+                      Id="eca57d0e-edce-4c6b-a91f-4d1f754bf9c0"
+                      LastKnownName="int"
+                      LastKnownLocation="ClassDiagram.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="195d04ad-7c18-41fd-87d5-28ba572fadbb"
+            name="forward"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="5ad790b7-ddfa-41bd-9840-9661ef9cf7ed"
+                  name="speed"
+                  direction="In"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <undefinedTypeMoniker
+                      Id="eca57d0e-edce-4c6b-a91f-4d1f754bf9c0"
+                      LastKnownName="int"
+                      LastKnownLocation="ClassDiagram.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="32a8a1bf-e660-4d07-bab3-381d36f0f288"
+                  direction="Return"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <undefinedTypeMoniker
+                      Id="75a3733e-27dd-419b-b96c-13b9ce09341a"
+                      LastKnownName="void"
+                      LastKnownLocation="ClassDiagram.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="cba3cf2e-99cf-45a9-8b11-04f824522a9c"
+            name="backward"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="a065ac00-53d2-4546-975b-05b6fce52f69"
+                  name="speed"
+                  direction="In"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <undefinedTypeMoniker
+                      Id="eca57d0e-edce-4c6b-a91f-4d1f754bf9c0"
+                      LastKnownName="int"
+                      LastKnownLocation="ClassDiagram.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="dce3d676-6d3b-44a0-b89a-35dd684b0b29"
+                  direction="Return"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <undefinedTypeMoniker
+                      Id="75a3733e-27dd-419b-b96c-13b9ce09341a"
+                      LastKnownName="void"
+                      LastKnownLocation="ClassDiagram.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="b4488457-b6ae-4a74-94a0-37b25325c811"
+            name="stop"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="0b8e723d-d442-490b-b53b-fda483b22bca"
+                  direction="Return"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <undefinedTypeMoniker
+                      Id="75a3733e-27dd-419b-b96c-13b9ce09341a"
+                      LastKnownName="void"
+                      LastKnownLocation="ClassDiagram.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="26bcae58-06fe-494c-af69-67f417ffd573"
+            name="right"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="4e0ad3df-e86b-41ee-bdd5-2946d2592840"
+                  name="speed"
+                  direction="In"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <undefinedTypeMoniker
+                      Id="eca57d0e-edce-4c6b-a91f-4d1f754bf9c0"
+                      LastKnownName="int"
+                      LastKnownLocation="ClassDiagram.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="87d770d2-e441-4ebf-8f73-ef2f457bb900"
+                  direction="Return"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <undefinedTypeMoniker
+                      Id="75a3733e-27dd-419b-b96c-13b9ce09341a"
+                      LastKnownName="void"
+                      LastKnownLocation="ClassDiagram.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="a37544c7-2690-44b2-a856-ae7942074b91"
+            name="left"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="16793a26-7117-4f3f-9d60-a99f7d34e474"
+                  name="speed"
+                  direction="In"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <undefinedTypeMoniker
+                      Id="eca57d0e-edce-4c6b-a91f-4d1f754bf9c0"
+                      LastKnownName="int"
+                      LastKnownLocation="ClassDiagram.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="53ac0c69-b002-4e76-9b70-793f36a4c97c"
+                  direction="Return"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <undefinedTypeMoniker
+                      Id="75a3733e-27dd-419b-b96c-13b9ce09341a"
+                      LastKnownName="void"
+                      LastKnownLocation="ClassDiagram.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="4acd94df-3e5f-4a09-8d4e-61ca8db482e2"
+            name="rotate_ccw"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="707d39e1-d617-4863-a84a-886d00e70647"
+                  direction="Return"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <undefinedTypeMoniker
+                      Id="75a3733e-27dd-419b-b96c-13b9ce09341a"
+                      LastKnownName="void"
+                      LastKnownLocation="ClassDiagram.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="5a3a4e26-54a8-4ef5-acb4-3f41518f37f6"
+            name="rotate_cw"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="288045c9-54bf-4db5-b9ee-121e7ad8b69a"
+                  direction="Return"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <undefinedTypeMoniker
+                      Id="75a3733e-27dd-419b-b96c-13b9ce09341a"
+                      LastKnownName="void"
+                      LastKnownLocation="ClassDiagram.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+        </ownedOperationsInternal>
       </class>
     </packageHasNamedElement>
     <packageHasNamedElement>
@@ -296,6 +617,120 @@
             isAbstract="false"
             concurrency="Sequential"
             isQuery="false" />
+          <operation
+            Id="5b1a0179-def6-46d8-a588-2e969c12b49b"
+            name="forward"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="450161e2-dc30-4c90-9511-902c9d60197c"
+                  name="speed"
+                  direction="In"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <undefinedTypeMoniker
+                      Id="eca57d0e-edce-4c6b-a91f-4d1f754bf9c0"
+                      LastKnownName="int"
+                      LastKnownLocation="ClassDiagram.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="99305c87-e1fa-4fe5-ae98-4b7aafed7e77"
+                  direction="Return"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <undefinedTypeMoniker
+                      Id="75a3733e-27dd-419b-b96c-13b9ce09341a"
+                      LastKnownName="void"
+                      LastKnownLocation="ClassDiagram.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="55a1554d-2d96-4ac4-8d3d-57b67dba4fc4"
+            name="backward"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="56633cdf-544a-42be-8cf0-f092cd419bc0"
+                  name="speed"
+                  direction="In"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <undefinedTypeMoniker
+                      Id="eca57d0e-edce-4c6b-a91f-4d1f754bf9c0"
+                      LastKnownName="int"
+                      LastKnownLocation="ClassDiagram.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="ae6f3884-ae60-4485-a5ab-498b9f642ec2"
+                  direction="Return"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <undefinedTypeMoniker
+                      Id="75a3733e-27dd-419b-b96c-13b9ce09341a"
+                      LastKnownName="void"
+                      LastKnownLocation="ClassDiagram.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="a16515a7-4363-4031-8633-af531479864e"
+            name="stop"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="76b55ff2-1793-4f47-acaf-662de9fca439"
+                  name="speed"
+                  direction="In"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <undefinedTypeMoniker
+                      Id="eca57d0e-edce-4c6b-a91f-4d1f754bf9c0"
+                      LastKnownName="int"
+                      LastKnownLocation="ClassDiagram.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="31b88798-df1d-4576-b12f-1b91c099d579"
+                  direction="Return"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <undefinedTypeMoniker
+                      Id="75a3733e-27dd-419b-b96c-13b9ce09341a"
+                      LastKnownName="void"
+                      LastKnownLocation="ClassDiagram.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
         </ownedOperationsInternal>
       </class>
     </packageHasNamedElement>
