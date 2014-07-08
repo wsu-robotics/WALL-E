@@ -1,0 +1,156 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<logicalClassDesignerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" dslVersion="1.0.0.0" Id="aeaacc33-f95c-4d4a-bc50-ea87c794bca5" name="ClassDiagram" linkedPackageId="8c941b4d-b2de-45ba-b786-8f08cdf8628c" xmlns="http://schemas.microsoft.com/dsltools/LogicalClassDesigner">
+  <profileInstances>
+    <packageHasProfileInstances Id="5e3318fe-cbee-425a-b287-771f44d714f3">
+      <profileInstance Id="28736d71-c15f-40d9-b89a-ddabd04162a3" name="StandardProfileL2">
+        <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
+      </profileInstance>
+      <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
+    </packageHasProfileInstances>
+    <packageHasProfileInstances Id="8f567a42-cc68-48a2-9a8d-f6068a7ab2b0">
+      <profileInstance Id="43ca150e-044b-47ec-b4eb-8faa9bf4540f" name="StandardProfileL3">
+        <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
+      </profileInstance>
+      <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
+    </packageHasProfileInstances>
+  </profileInstances>
+  <packagedElements>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="33f81ce8-5e52-4385-9505-821f4737dc26" name="Drive" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="80e9185f-23ce-41b3-ada5-7a24bf9903bc" />
+        <targetEnds>
+          <association Id="5a8fb3eb-3251-4f9e-9ee4-c47a98f6af4c" isDerived="false" sourceEndRoleName="Drive" targetEndRoleName="Motor" isLeaf="false" isAbstract="false">
+            <classMoniker Id="1eb60669-647e-443f-8b38-f655fc421555" LastKnownName="Motor" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="827eb30c-8c34-464a-95d5-fdfa73da16da" name="Drive" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="Composite" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="f612bd35-ea07-4a87-ac32-731385c6bfe7" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="126f382c-c0ea-4ae0-bf53-1dcac960c502" name="Motor" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="true">
+                  <lowerValueInternal>
+                    <literalString Id="3cc89fa7-8d09-485e-a6a0-1ceb80fc8ab3" name="Lower" value="2">
+                      <elementDefinition Id="115a0834-90a0-4530-87de-fd35de41d550" />
+                    </literalString>
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString Id="2be3d40b-4d34-478e-be9c-cec6e7333c7f" name="Upper" value="2">
+                      <elementDefinition Id="78fbcb6c-f44b-4167-93b7-25cb86dd5436" />
+                    </literalString>
+                  </upperValueInternal>
+                  <elementDefinition Id="9f466d6a-e34b-4d44-bb90-e19d74dbe6f1" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="ca17f7c6-3029-4c13-80d9-f7dfe5371225" />
+          </association>
+        </targetEnds>
+        <ownedAttributesInternal>
+          <property Id="2ff863d7-257e-4749-9c4e-a9bdf83a270f" name="_left" visibility="Private" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="cc2a89bf-744b-4973-ba23-b483c76f7d51" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="45cdf32b-ccf4-4b5d-8c36-dc985c2c92e6" LastKnownName="Motor" />
+            </type_NamedElement>
+          </property>
+          <property Id="19b2bdb3-7277-4006-8854-81806f630347" name="_right" visibility="Private" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="6280d4b7-4e48-4784-a47f-4713f2278d00" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="45cdf32b-ccf4-4b5d-8c36-dc985c2c92e6" LastKnownName="Motor" />
+            </type_NamedElement>
+          </property>
+        </ownedAttributesInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="1eb60669-647e-443f-8b38-f655fc421555" name="Motor" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="cc6eccf5-91d3-4658-a0b2-8dfc0c064616" />
+        <ownedAttributesInternal>
+          <property Id="a1483168-72d2-452a-905c-65f2fcbfffa4" name="_pin1" visibility="Private" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="92b970ac-7f7b-4cd0-8fde-309c361b1eb4" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="768549af-bbb5-4066-a92a-163638ad35c1" LastKnownName="int" />
+            </type_NamedElement>
+          </property>
+          <property Id="27d3d783-eb3c-433d-9c0f-d19755db2970" name="_pin2" visibility="Private" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="dd0ce3a7-4407-41e7-bf2a-e999e9473af7" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="768549af-bbb5-4066-a92a-163638ad35c1" LastKnownName="int" />
+            </type_NamedElement>
+          </property>
+          <property Id="dddac94e-1c49-4ddf-a30d-57218b4513d6" name="_control_pin" visibility="Private" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="e39cf180-ebf1-4fcd-863f-ffc538484b7f" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="768549af-bbb5-4066-a92a-163638ad35c1" LastKnownName="int" />
+            </type_NamedElement>
+          </property>
+        </ownedAttributesInternal>
+        <ownedOperationsInternal>
+          <operation Id="8702cc28-e320-46ab-a275-9d027980b919" name="initMotor" visibility="Private" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="79486027-b774-425f-be0d-a81df05f4cef" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="86ee4398-07b2-4e2e-9d4e-2598e0f1bd71" direction="Return" isUnique="false">
+                  <elementDefinition Id="f981e0ae-43a1-4df4-8c13-61c2c93e3196" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="ff8dbd38-b727-4c6c-b3e8-4201f5fbccf2" LastKnownName="void" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation Id="91b37778-9fcf-4017-ac97-26ec9546af89" name="&lt;&lt;constructor&gt;&gt; Motor" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="0175c3cf-b6ca-40fb-8b34-139448f42592" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="d9017eae-550c-439b-a806-11d8d1e1d375" name="pin1" direction="In" isUnique="false">
+                  <elementDefinition Id="7858fa12-de37-4228-9630-bf541a711936" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="768549af-bbb5-4066-a92a-163638ad35c1" LastKnownName="int" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="93c07fa6-9587-4e33-80ab-13c18de84ab6" name="pin2" direction="In" isUnique="false">
+                  <elementDefinition Id="622f0597-7e40-4db2-832b-9d913704553b" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="768549af-bbb5-4066-a92a-163638ad35c1" LastKnownName="int" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="2c32098f-ff6a-4220-8838-02a3b0dbee1d" name="control" direction="In" isUnique="false">
+                  <elementDefinition Id="ef44085a-7235-4e2a-9ceb-5706099cce00" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="768549af-bbb5-4066-a92a-163638ad35c1" LastKnownName="int" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation Id="6b30c5c8-c373-47ff-b4e7-30d12a9821f0" name="&lt;&lt;constructor&gt;&gt; Motor" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="8f3917a8-8588-4435-aeb6-afacd8ed2ae7" />
+          </operation>
+        </ownedOperationsInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <packageHasNamedElement>
+      <referencedType Id="768549af-bbb5-4066-a92a-163638ad35c1" name="int" isAbstract="false" isLeaf="false" cachedFullName="int">
+        <elementDefinition Id="eca57d0e-edce-4c6b-a91f-4d1f754bf9c0" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="ff8dbd38-b727-4c6c-b3e8-4201f5fbccf2" name="void" isAbstract="false" isLeaf="false" cachedFullName="void">
+        <elementDefinition Id="75a3733e-27dd-419b-b96c-13b9ce09341a" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="45cdf32b-ccf4-4b5d-8c36-dc985c2c92e6" name="Motor" isAbstract="false" isLeaf="false" cachedFullName="ClassDiagram::Motor">
+        <elementDefinition Id="3589ddf1-6692-43b6-b70d-7231eedc33a1" />
+      </referencedType>
+    </packageHasNamedElement>
+  </packagedElements>
+  <package Id="8c941b4d-b2de-45ba-b786-8f08cdf8628c" name="ClassDiagram">
+    <elementDefinition Id="1aeb106e-250e-4b33-ad7b-1484a7e96de9" />
+  </package>
+</logicalClassDesignerModel>
