@@ -5,4 +5,6 @@ left	KEYWORD2
 right	KEYWORD2
 rotate_ccw	KEYWORD2
 rotate_cw	KEYWORD2
-motorStop	KEYWORD2
+stop	KEYWORD2
+Motor	KEYWORD1
+initMotor	KEYWORD2
